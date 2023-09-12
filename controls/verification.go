@@ -113,7 +113,7 @@ type User_otp struct {
 // @Failure 400 {object} string "Could not bind the JSON Data"
 // @Failure 404 {object} string "User not found"
 // @Failure 422 {object} string "Wrong OTP, Retry again"
-// @Router /user/signup/otp-validation [post]
+// @Router /user/signup/otpvalidate [post]
 func OtpValidation(c *gin.Context) {
 	fmt.Println("Starting OTP Validation...")
 

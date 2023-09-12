@@ -1284,7 +1284,7 @@ paths:
       summary: Create a new user
       tags:
       - users
-  /user/signup/otp-validation:
+  /user/signup/otpvalidate:
     post:
       consumes:
       - application/json

@@ -1217,7 +1217,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/user/signup/otp-validation": {
+        "/user/signup/otpvalidate": {
             "post": {
                 "description": "Validate OTP provided by the user during registration",
                 "consumes": [
