@@ -52,7 +52,6 @@ during signup function, then the user is successfully registered, else we tell t
 // @Failure 400 {object} ErrorResponse "Data binding error"
 // @Failure 409 {object} ErrorResponse "User already Exist"
 // @Router /user/signup [post]
-
 func SignUp(c *gin.Context) {
 
 	// the checkuserdata struct is used for validating user inputs from the client and perform operation before we

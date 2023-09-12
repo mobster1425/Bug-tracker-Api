@@ -171,7 +171,6 @@ type UserEnterData2 struct {
 // @Failure 400 {object} string "Data binding error"
 // @Failure 409 {object} string "User not exist"
 // @Router /user/forgotpassword [put]
-
 func GenerateOtpForForgotPassword(c *gin.Context) {
 	fmt.Println("GenerateOtpForForgotPassword controller called")
 
