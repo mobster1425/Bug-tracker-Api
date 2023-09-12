@@ -1227,7 +1227,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Authentication"
+                    "users"
                 ],
                 "summary": "Validate OTP",
                 "parameters": [

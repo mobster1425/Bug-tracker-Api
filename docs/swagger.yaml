@@ -1317,7 +1317,7 @@ paths:
             type: string
       summary: Validate OTP
       tags:
-      - Authentication
+      - users
   /user/userchangepassword:
     post:
       consumes:

@@ -105,7 +105,7 @@ type User_otp struct {
 // OtpValidation godoc
 // @Summary Validate OTP
 // @Description Validate OTP provided by the user during registration
-// @Tags Authentication
+// @Tags users
 // @Accept json
 // @Produce json
 // @Param data body User_otp true "User data"
