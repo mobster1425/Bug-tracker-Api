@@ -1217,6 +1217,58 @@ const docTemplate = `{
                 }
             }
         },
+        "/user/signup/otp-validation": {
+            "post": {
+                "description": "Validate OTP provided by the user during registration",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Validate OTP",
+                "parameters": [
+                    {
+                        "description": "User data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controls.User_otp"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New User Successfully Registered",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Could not bind the JSON Data",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "User not found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "422": {
+                        "description": "Wrong OTP, Retry again",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/user/userchangepassword": {
             "post": {
                 "description": "Change a user's password by providing the current password and the new password.",
@@ -1983,6 +2035,17 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "email": {
+                    "type": "string"
+                }
+            }
+        },
+        "controls.User_otp": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "otp": {
                     "type": "string"
                 }
             }

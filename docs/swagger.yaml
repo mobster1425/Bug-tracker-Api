@@ -408,6 +408,13 @@ definitions:
       updatedAt:
         type: string
     type: object
+  controls.User_otp:
+    properties:
+      email:
+        type: string
+      otp:
+        type: string
+    type: object
   controls.UserEnterData:
     properties:
       members:
@@ -1277,6 +1284,40 @@ paths:
       summary: Create a new user
       tags:
       - users
+  /user/signup/otp-validation:
+    post:
+      consumes:
+      - application/json
+      description: Validate OTP provided by the user during registration
+      parameters:
+      - description: User data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/controls.User_otp'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: New User Successfully Registered
+          schema:
+            type: string
+        "400":
+          description: Could not bind the JSON Data
+          schema:
+            type: string
+        "404":
+          description: User not found
+          schema:
+            type: string
+        "422":
+          description: Wrong OTP, Retry again
+          schema:
+            type: string
+      summary: Validate OTP
+      tags:
+      - Authentication
   /user/userchangepassword:
     post:
       consumes:

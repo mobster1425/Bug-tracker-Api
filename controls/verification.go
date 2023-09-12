@@ -96,12 +96,27 @@ func getRandNum() (string, error) {
 
 // -------Otp validatioin------------->
 // the OtpValidation function is responsible for validating the OTP provided by the user during registration
+
+type User_otp struct {
+	Otp   string
+	Email string
+}
+
+// OtpValidation godoc
+// @Summary Validate OTP
+// @Description Validate OTP provided by the user during registration
+// @Tags Authentication
+// @Accept json
+// @Produce json
+// @Param data body User_otp true "User data"
+// @Success 200 {object} string "New User Successfully Registered"
+// @Failure 400 {object} string "Could not bind the JSON Data"
+// @Failure 404 {object} string "User not found"
+// @Failure 422 {object} string "Wrong OTP, Retry again"
+// @Router /user/signup/otp-validation [post]
 func OtpValidation(c *gin.Context) {
 	fmt.Println("Starting OTP Validation...")
-	type User_otp struct {
-		Otp   string
-		Email string
-	}
+
 	var user_otp User_otp
 	var userData models.User
 	if c.Bind(&user_otp) != nil {
