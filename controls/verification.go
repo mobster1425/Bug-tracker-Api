@@ -109,7 +109,7 @@ type User_otp struct {
 // @Accept json
 // @Produce json
 // @Param data body User_otp true "User data"
-// @Success 200 {object} string "New User Successfully Registered"
+// @Success 200 {string} string "New User Successfully Registered"
 // @Failure 400 {object} string "Could not bind the JSON Data"
 // @Failure 404 {object} string "User not found"
 // @Failure 422 {object} string "Wrong OTP, Retry again"

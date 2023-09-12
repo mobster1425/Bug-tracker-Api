@@ -34,7 +34,7 @@ func UserAuth(c *gin.Context) {
 			return nil, fmt.Errorf("Unexpected signing method: %v", token.Header["alg"])
 		}
 
-		return []byte(os.Getenv("SECERET")), nil
+		return []byte(os.Getenv("SECRET")), nil
 	})
 
 	if err != nil {
