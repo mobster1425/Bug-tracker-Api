@@ -49,8 +49,8 @@ during signup function, then the user is successfully registered, else we tell t
 // @Produce json
 // @Param user body checkUserData true "User data"
 // @Success 202 {string} string "Go to /signup/otpvalidate"
-// @Failure 400 {object} ErrorResponse "Data binding error"
-// @Failure 409 {object} ErrorResponse "User already Exist"
+// @Failure 400 {object} string "Data binding error"
+// @Failure 409 {object} string "User already Exist"
 // @Router /user/signup [post]
 func SignUp(c *gin.Context) {
 

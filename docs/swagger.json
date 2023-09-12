@@ -1002,6 +1002,52 @@
                 }
             }
         },
+        "/user/forgotpassword": {
+            "put": {
+                "description": "Generate OTP for the user's forgot password request.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "Generate OTP for forgot password",
+                "parameters": [
+                    {
+                        "description": "User data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controls.UserEnterData2"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OTP sent successfully",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Data binding error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "409": {
+                        "description": "User not exist",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/user/forgotpassword/changepassword": {
             "post": {
                 "description": "Change a user's password by providing the email, OTP, and new password.",
@@ -1107,6 +1153,52 @@
                 "responses": {
                     "200": {
                         "description": "User Successfully Log Out",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/signup": {
+            "post": {
+                "description": "Create a new user with the provided data.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "Create a new user",
+                "parameters": [
+                    {
+                        "description": "User data",
+                        "name": "user",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controls.checkUserData"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Go to /signup/otpvalidate",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Data binding error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "409": {
+                        "description": "User already Exist",
                         "schema": {
                             "type": "string"
                         }
@@ -1872,6 +1964,14 @@
                     }
                 },
                 "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "controls.UserEnterData2": {
+            "type": "object",
+            "properties": {
+                "email": {
                     "type": "string"
                 }
             }

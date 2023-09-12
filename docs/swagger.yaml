@@ -419,6 +419,11 @@ definitions:
     required:
     - name
     type: object
+  controls.UserEnterData2:
+    properties:
+      email:
+        type: string
+    type: object
   controls.UsersDTO:
     properties:
       user_id:
@@ -1139,6 +1144,36 @@ paths:
       summary: Update a note
       tags:
       - Notes
+  /user/forgotpassword:
+    put:
+      consumes:
+      - application/json
+      description: Generate OTP for the user's forgot password request.
+      parameters:
+      - description: User data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/controls.UserEnterData2'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OTP sent successfully
+          schema:
+            type: string
+        "400":
+          description: Data binding error
+          schema:
+            type: string
+        "409":
+          description: User not exist
+          schema:
+            type: string
+      summary: Generate OTP for forgot password
+      tags:
+      - users
   /user/forgotpassword/changepassword:
     post:
       consumes:
@@ -1210,6 +1245,36 @@ paths:
           schema:
             type: string
       summary: Log out a user
+      tags:
+      - users
+  /user/signup:
+    post:
+      consumes:
+      - application/json
+      description: Create a new user with the provided data.
+      parameters:
+      - description: User data
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/controls.checkUserData'
+      produces:
+      - application/json
+      responses:
+        "202":
+          description: Go to /signup/otpvalidate
+          schema:
+            type: string
+        "400":
+          description: Data binding error
+          schema:
+            type: string
+        "409":
+          description: User already Exist
+          schema:
+            type: string
+      summary: Create a new user
       tags:
       - users
   /user/userchangepassword:
