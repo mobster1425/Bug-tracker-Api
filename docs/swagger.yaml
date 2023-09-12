@@ -1,0 +1,1304 @@
+definitions:
+  controls.BugDTO:
+    properties:
+      author_id:
+        type: integer
+      author_user_name:
+        type: string
+      closed_at:
+        type: string
+      closed_by_id:
+        type: integer
+      closed_by_user_name:
+        type: string
+      created_at:
+        type: string
+      created_by_id:
+        type: integer
+      created_by_user_name:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      is_resolved:
+        type: boolean
+      note_body:
+        description: BugID              uint      `json:"bug_id" gorm:"column:id"`
+        type: string
+      note_created_at:
+        type: string
+      note_id:
+        type: integer
+      note_updated_at:
+        type: string
+      priority:
+        type: string
+      reopened_at:
+        type: string
+      reopened_by_id:
+        type: integer
+      reopened_by_user_name:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by_id:
+        type: integer
+      updated_by_user_name:
+        type: string
+    type: object
+  controls.BugDTO1:
+    properties:
+      author_user:
+        type: string
+      author_user_id:
+        type: integer
+      closed_at:
+        type: string
+      closed_by_id:
+        type: integer
+      closed_by_user_name:
+        type: string
+      created_at:
+        type: string
+      created_by_id:
+        type: integer
+      created_by_user_name:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      is_resolved:
+        type: boolean
+      note_body:
+        description: BugID              uint      `json:"bug_id" gorm:"column:id"`
+        type: string
+      note_created_at:
+        type: string
+      note_id:
+        type: integer
+      note_updated_at:
+        type: string
+      priority:
+        type: string
+      reopened_at:
+        type: string
+      reopened_by_id:
+        type: integer
+      reopened_by_user_name:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by_id:
+        type: integer
+      updated_by_user_name:
+        type: string
+    type: object
+  controls.BugDTO3:
+    properties:
+      author_user:
+        type: string
+      author_user_id:
+        type: integer
+      closed_at:
+        type: string
+      closed_by_id:
+        type: integer
+      closed_by_user_name:
+        type: string
+      created_at:
+        type: string
+      created_by_id:
+        type: integer
+      created_by_user_name:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      is_resolved:
+        type: boolean
+      note_body:
+        description: BugID              uint      `json:"bug_id" gorm:"column:id"`
+        type: string
+      note_created_at:
+        type: string
+      note_id:
+        type: integer
+      note_updated_at:
+        type: string
+      priority:
+        type: string
+      reopened_at:
+        type: string
+      reopened_by_id:
+        type: integer
+      reopened_by_user_name:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by_id:
+        type: integer
+      updated_by_user_name:
+        type: string
+    type: object
+  controls.BugDTO4:
+    properties:
+      author_user:
+        type: string
+      author_user_id:
+        type: integer
+      closed_at:
+        type: string
+      closed_by_id:
+        type: integer
+      closed_by_user_name:
+        type: string
+      created_at:
+        type: string
+      created_by_id:
+        type: integer
+      created_by_user_name:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      is_resolved:
+        type: boolean
+      note_body:
+        description: BugID              uint      `json:"bug_id" gorm:"column:id"`
+        type: string
+      note_created_at:
+        type: string
+      note_id:
+        type: integer
+      note_updated_at:
+        type: string
+      priority:
+        type: string
+      reopened_at:
+        type: string
+      reopened_by_id:
+        type: integer
+      reopened_by_user_name:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by_id:
+        type: integer
+      updated_by_user_name:
+        type: string
+    type: object
+  controls.BugDTO5:
+    properties:
+      author_user:
+        type: string
+      author_user_id:
+        type: integer
+      closed_at:
+        type: string
+      closed_by_id:
+        type: integer
+      closed_by_user_name:
+        type: string
+      created_at:
+        type: string
+      created_by_id:
+        type: integer
+      created_by_user_name:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      is_resolved:
+        type: boolean
+      note_body:
+        description: BugID              uint      `json:"bug_id" gorm:"column:id"`
+        type: string
+      note_created_at:
+        type: string
+      note_id:
+        type: integer
+      note_updated_at:
+        type: string
+      priority:
+        type: string
+      reopened_at:
+        type: string
+      reopened_by_id:
+        type: integer
+      reopened_by_user_name:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by_id:
+        type: integer
+      updated_by_user_name:
+        type: string
+    type: object
+  controls.BugRequest:
+    properties:
+      description:
+        type: string
+      priority:
+        type: string
+      title:
+        type: string
+    required:
+    - description
+    - priority
+    - title
+    type: object
+  controls.BugUpdateData:
+    properties:
+      description:
+        type: string
+      priority:
+        type: string
+      title:
+        type: string
+    required:
+    - description
+    - priority
+    - title
+    type: object
+  controls.EditedProjectResponse:
+    properties:
+      Message:
+        type: string
+      Updated Project:
+        $ref: '#/definitions/controls.Project'
+    type: object
+  controls.InputData:
+    properties:
+      name:
+        type: string
+    required:
+    - name
+    type: object
+  controls.MemberDTO:
+    properties:
+      joined_at:
+        type: string
+      member_id:
+        type: integer
+      member_user_name:
+        type: string
+      members_id:
+        type: integer
+    type: object
+  controls.NoteDTO:
+    properties:
+      author_id:
+        type: integer
+      author_user_name:
+        type: string
+      bug_id:
+        type: integer
+      created_at:
+        type: string
+      note_body:
+        type: string
+      note_id:
+        type: integer
+      updated_at:
+        type: string
+    type: object
+  controls.NoteDTO1:
+    properties:
+      author_id:
+        type: integer
+      author_user_name:
+        type: string
+      bug_id:
+        type: integer
+      created_at:
+        type: string
+      note_body:
+        type: string
+      note_id:
+        type: integer
+      updated_at:
+        type: string
+    type: object
+  controls.Project:
+    properties:
+      Created At:
+        type: string
+      Project ID:
+        type: integer
+      Project Name:
+        type: string
+      Updated At:
+        type: string
+    type: object
+  controls.Result:
+    properties:
+      bugID:
+        description: Rename this field to match the column name
+        type: integer
+      createdAt:
+        type: string
+      createdByID:
+        type: integer
+      createdByUserName:
+        description: Rename this field to match the column name
+        type: string
+      joinedAt:
+        description: Rename this field to match the column name
+        type: string
+      memberID:
+        description: Rename this field to match the column name
+        type: integer
+      memberUserID:
+        description: Rename this field to match the column name
+        type: integer
+      memberUserName:
+        description: Rename this field to match the column name
+        type: string
+      projectID:
+        type: integer
+      projectName:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  controls.Result2:
+    properties:
+      bugID:
+        description: Rename this field to match the column name
+        type: integer
+      createdAt:
+        type: string
+      createdByID:
+        description: Rename this field to match the column name
+        type: integer
+      createdByUserName:
+        description: Rename this field to match the column name
+        type: string
+      joinedAt:
+        description: Rename this field to match the column name
+        type: string
+      memberID:
+        description: Rename this field to match the column name
+        type: integer
+      memberUserID:
+        description: Rename this field to match the column name
+        type: integer
+      memberUserName:
+        description: Rename this field to match the column name
+        type: string
+      projectID:
+        type: integer
+      projectName:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  controls.UserEnterData:
+    properties:
+      members:
+        items:
+          type: string
+        type: array
+      name:
+        type: string
+    required:
+    - name
+    type: object
+  controls.UsersDTO:
+    properties:
+      user_id:
+        type: integer
+      user_name:
+        type: string
+    type: object
+  controls.checkUserData:
+    properties:
+      confirmPassword:
+        type: string
+      email:
+        type: string
+      otp:
+        type: string
+      password:
+        type: string
+      userName:
+        type: string
+    type: object
+  controls.request:
+    properties:
+      members:
+        items:
+          type: string
+        type: array
+    required:
+    - members
+    type: object
+  controls.requestBody:
+    properties:
+      body:
+        type: string
+    required:
+    - body
+    type: object
+  controls.requestBody1:
+    properties:
+      body:
+        type: string
+    required:
+    - body
+    type: object
+  controls.userData:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    type: object
+  controls.userEnterData1:
+    properties:
+      confirmPassword:
+        type: string
+      email:
+        type: string
+      otp:
+        type: string
+      password:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /projects/:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of projects associated with the authenticated user.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of projects
+          schema:
+            $ref: '#/definitions/controls.Result'
+        "400":
+          description: Invalid user ID
+          schema:
+            type: string
+        "500":
+          description: Failed to fetch projects
+          schema:
+            type: string
+      summary: Get projects associated with the authenticated user
+      tags:
+      - projects
+    post:
+      consumes:
+      - application/json
+      description: Create a new project and assign members to it.
+      parameters:
+      - description: Project details
+        in: body
+        name: projectInfo
+        required: true
+        schema:
+          $ref: '#/definitions/controls.UserEnterData'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Created project details
+          schema:
+            $ref: '#/definitions/controls.Result2'
+        "400":
+          description: Invalid request data
+          schema:
+            type: string
+        "500":
+          description: Failed to create project
+          schema:
+            type: string
+      summary: Create a new project
+      tags:
+      - projects
+  /projects/{projectId}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a project with the specified ID, including its members and
+        bugs.
+      parameters:
+      - description: ID of the project to delete
+        in: path
+        name: projectId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Deletion confirmation
+          schema:
+            type: string
+        "400":
+          description: Invalid user ID or project ID
+          schema:
+            type: string
+        "403":
+          description: Permission denied
+          schema:
+            type: string
+        "404":
+          description: Project not found
+          schema:
+            type: string
+      summary: Delete a project
+      tags:
+      - projects
+    put:
+      consumes:
+      - application/json
+      description: Edit the name of a project with the specified ID.
+      parameters:
+      - description: ID of the project to edit
+        in: path
+        name: projectId
+        required: true
+        type: integer
+      - description: New project name
+        in: body
+        name: projectInfo
+        required: true
+        schema:
+          $ref: '#/definitions/controls.InputData'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully updated the project
+          schema:
+            $ref: '#/definitions/controls.EditedProjectResponse'
+        "400":
+          description: Invalid user ID or request data
+          schema:
+            type: string
+        "403":
+          description: Permission denied
+          schema:
+            type: string
+        "404":
+          description: Project not found
+          schema:
+            type: string
+        "500":
+          description: Failed to update project
+          schema:
+            type: string
+      summary: Edit a project's name
+      tags:
+      - projects
+  /projects/{projectId}/bugs:
+    get:
+      consumes:
+      - application/json
+      description: Get all bugs in a project with the specified project ID.
+      parameters:
+      - description: ID of the project to fetch bugs from
+        in: path
+        name: projectId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of bugs in the project
+          schema:
+            items:
+              $ref: '#/definitions/controls.BugDTO'
+            type: array
+        "400":
+          description: Invalid user ID, project ID, or request data
+          schema:
+            type: string
+        "401":
+          description: Access is denied
+          schema:
+            type: string
+        "500":
+          description: Failed to fetch bugs
+          schema:
+            type: string
+      summary: Get all bugs in a project
+      tags:
+      - Bugs
+    post:
+      consumes:
+      - application/json
+      description: Create a new bug in a project with the specified project ID.
+      parameters:
+      - description: ID of the project to create the bug in
+        in: path
+        name: projectId
+        required: true
+        type: integer
+      - description: Bug details
+        in: body
+        name: bugRequest
+        required: true
+        schema:
+          $ref: '#/definitions/controls.BugRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created bug details
+          schema:
+            $ref: '#/definitions/controls.BugDTO1'
+        "400":
+          description: Invalid user ID, project ID, or request data
+          schema:
+            type: string
+        "401":
+          description: Access is denied
+          schema:
+            type: string
+        "500":
+          description: Failed to create bug
+          schema:
+            type: string
+      summary: Create a new bug in a project
+      tags:
+      - Bugs
+  /projects/{projectId}/bugs/{bugId}:
+    delete:
+      description: Delete a bug by bug ID
+      operationId: delete-bug
+      parameters:
+      - description: Project ID
+        in: path
+        name: projectId
+        required: true
+        type: integer
+      - description: Bug ID
+        in: path
+        name: bugId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "403":
+          description: Forbidden
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Delete a bug
+      tags:
+      - Bugs
+    put:
+      consumes:
+      - application/json
+      description: Update a bug in a project with the specified project and bug IDs.
+      parameters:
+      - description: ID of the project containing the bug
+        in: path
+        name: projectId
+        required: true
+        type: integer
+      - description: ID of the bug to update
+        in: path
+        name: bugId
+        required: true
+        type: integer
+      - description: Updated bug details
+        in: body
+        name: bugUpdateData
+        required: true
+        schema:
+          $ref: '#/definitions/controls.BugUpdateData'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Updated bug details
+          schema:
+            $ref: '#/definitions/controls.BugDTO3'
+        "400":
+          description: Invalid user ID, project ID, bug ID, or request data
+          schema:
+            type: string
+        "401":
+          description: Access is denied
+          schema:
+            type: string
+        "500":
+          description: Failed to update bug
+          schema:
+            type: string
+      summary: Update a bug in a project
+      tags:
+      - Bugs
+  /projects/{projectId}/bugs/{bugId}/close:
+    post:
+      description: Close a bug by bug ID
+      operationId: close-bug
+      parameters:
+      - description: Project ID
+        in: path
+        name: projectId
+        required: true
+        type: integer
+      - description: Bug ID
+        in: path
+        name: bugId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Closed bug
+          schema:
+            $ref: '#/definitions/controls.BugDTO4'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "403":
+          description: Forbidden
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Close a bug
+      tags:
+      - Bugs
+  /projects/{projectId}/bugs/{bugId}/notes:
+    post:
+      consumes:
+      - application/json
+      description: Create a new note for a bug
+      operationId: create-note
+      parameters:
+      - description: Project ID
+        in: path
+        name: projectId
+        required: true
+        type: integer
+      - description: Bug ID
+        in: path
+        name: bugId
+        required: true
+        type: integer
+      - description: Note details
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controls.requestBody'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created note
+          schema:
+            $ref: '#/definitions/controls.NoteDTO'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "403":
+          description: Forbidden
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Create a new note
+      tags:
+      - Notes
+  /projects/{projectId}/bugs/{bugId}/reopen:
+    post:
+      description: Reopen a bug by bug ID
+      operationId: reopen-bug
+      parameters:
+      - description: Project ID
+        in: path
+        name: projectId
+        required: true
+        type: integer
+      - description: Bug ID
+        in: path
+        name: bugId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Reopened bug
+          schema:
+            $ref: '#/definitions/controls.BugDTO5'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "403":
+          description: Forbidden
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Reopen a bug
+      tags:
+      - Bugs
+  /projects/{projectId}/members:
+    post:
+      consumes:
+      - application/json
+      description: Add members to a project by project ID
+      operationId: add-project-members
+      parameters:
+      - description: Project ID
+        in: path
+        name: projectId
+        required: true
+        type: integer
+      - description: Member IDs
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controls.request'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Added members
+          schema:
+            items:
+              $ref: '#/definitions/controls.MemberDTO'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "403":
+          description: Forbidden
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Add members to a project
+      tags:
+      - Members
+  /projects/{projectId}/members/{memberId}:
+    delete:
+      description: Remove a member from a project by project ID and member ID
+      operationId: remove-project-member
+      parameters:
+      - description: Project ID
+        in: path
+        name: projectId
+        required: true
+        type: integer
+      - description: Member ID
+        in: path
+        name: memberId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "403":
+          description: Forbidden
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Remove a project member
+      tags:
+      - Members
+  /projects/{projectId}/members/leave:
+    post:
+      description: Leave a project as a member by project ID
+      operationId: leave-project-as-member
+      parameters:
+      - description: Project ID
+        in: path
+        name: projectId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "403":
+          description: Forbidden
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Leave a project as a member
+      tags:
+      - Members
+  /projects/{projectId}/notes/{noteId}:
+    delete:
+      description: Delete a note by note ID
+      operationId: delete-note
+      parameters:
+      - description: Project ID
+        in: path
+        name: projectId
+        required: true
+        type: integer
+      - description: Note ID
+        in: path
+        name: noteId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "403":
+          description: Forbidden
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Delete a note
+      tags:
+      - Notes
+    put:
+      consumes:
+      - application/json
+      description: Update a note by note ID
+      operationId: update-note
+      parameters:
+      - description: Project ID
+        in: path
+        name: projectId
+        required: true
+        type: integer
+      - description: Note ID
+        in: path
+        name: noteId
+        required: true
+        type: integer
+      - description: Note details
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controls.requestBody1'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Updated note
+          schema:
+            $ref: '#/definitions/controls.NoteDTO1'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "403":
+          description: Forbidden
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Update a note
+      tags:
+      - Notes
+  /user/forgotpassword/changepassword:
+    post:
+      consumes:
+      - application/json
+      description: Change a user's password by providing the email, OTP, and new password.
+      parameters:
+      - description: User data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/controls.userEnterData1'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Password changed successfully
+          schema:
+            type: string
+        "400":
+          description: Invalid OTP
+          schema:
+            type: string
+        "409":
+          description: User not exist
+          schema:
+            type: string
+      summary: Change user's password
+      tags:
+      - users
+  /user/login:
+    post:
+      consumes:
+      - application/json
+      description: Log in a user with the provided email and password.
+      parameters:
+      - description: User data
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/controls.userData'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User login successfully
+          schema:
+            type: string
+        "400":
+          description: Password is incorrect
+          schema:
+            type: string
+        "404":
+          description: User not found
+          schema:
+            type: string
+      summary: Log in a user
+      tags:
+      - users
+  /user/logout:
+    get:
+      description: Log out a user by clearing the authentication cookie.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User Successfully Log Out
+          schema:
+            type: string
+      summary: Log out a user
+      tags:
+      - users
+  /user/userchangepassword:
+    post:
+      consumes:
+      - application/json
+      description: Change a user's password by providing the current password and
+        the new password.
+      parameters:
+      - description: User data
+        in: body
+        name: userEnterData
+        required: true
+        schema:
+          $ref: '#/definitions/controls.checkUserData'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Password changed successfully
+          schema:
+            type: string
+        "400":
+          description: Password is incorrect
+          schema:
+            type: string
+        "409":
+          description: User not exist
+          schema:
+            type: string
+        "500":
+          description: Error in string conversion
+          schema:
+            type: string
+      summary: Change a user's password
+      tags:
+      - users
+  /user/userchangepassword/updatepassword:
+    post:
+      consumes:
+      - application/json
+      description: Update a user's password by providing the user's current password
+        and the new password.
+      parameters:
+      - description: User data
+        in: body
+        name: userEnterData
+        required: true
+        schema:
+          $ref: '#/definitions/controls.checkUserData'
+      produces:
+      - application/json
+      responses:
+        "202":
+          description: Successfully updated password
+          schema:
+            type: string
+        "400":
+          description: Error in string conversion
+          schema:
+            type: string
+        "409":
+          description: User not exist
+          schema:
+            type: string
+      summary: Update a user's password
+      tags:
+      - users
+  /user/users:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all users except the authenticated user.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of users
+          schema:
+            $ref: '#/definitions/controls.UsersDTO'
+        "400":
+          description: Invalid user ID
+          schema:
+            type: string
+        "500":
+          description: Failed to fetch users
+          schema:
+            type: string
+      summary: Get all users except the authenticated user
+      tags:
+      - users
+swagger: "2.0"
