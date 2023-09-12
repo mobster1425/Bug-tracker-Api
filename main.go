@@ -3,7 +3,8 @@ package main
 import (
 	"feyin/bug-tracker/config"
 	_ "feyin/bug-tracker/docs"
-	"feyin/bug-tracker/initializer"
+
+	//	"feyin/bug-tracker/initializer"
 	"feyin/bug-tracker/routes"
 
 	"github.com/gin-gonic/gin"
@@ -21,7 +22,7 @@ var DB *gorm.DB
 var R = gin.Default()
 
 func init() {
-	initializer.LoadEnv()
+	//	 initializer.LoadEnv()
 	var err error
 	config.DB, err = config.DBconnect()
 	if err != nil {
