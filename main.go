@@ -4,7 +4,7 @@ import (
 	"feyin/bug-tracker/config"
 	_ "feyin/bug-tracker/docs"
 
-	//	"feyin/bug-tracker/initializer"
+//	"feyin/bug-tracker/initializer"
 	"feyin/bug-tracker/routes"
 
 	"github.com/gin-gonic/gin"
@@ -22,7 +22,7 @@ var DB *gorm.DB
 var R = gin.Default()
 
 func init() {
-	//	initializer.LoadEnv()
+//	initializer.LoadEnv()
 	var err error
 	config.DB, err = config.DBconnect()
 	if err != nil {
@@ -41,7 +41,7 @@ func main() {
 
 	// url := ginSwagger.URL("http://localhost:8080/docs/swagger.json") // The url pointing to API definition
 	// url := ginSwagger.URL("http://localhost:8080/swagger/doc.json") // The url pointing to API definition
-	url := ginSwagger.URL("https://bug-tracker-api-ntis.onrender.com/swagger/doc.json")
+		url := ginSwagger.URL("https://bug-tracker-api-ntis.onrender.com/swagger/doc.json")
 	// R.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	// R.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 	R.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))

@@ -16,7 +16,7 @@ func UserAuth(c *gin.Context) {
 	fmt.Println("Starting UserAuth...")
 	//Get the cookie off req
 	tokenString, err := c.Cookie("UserAutherization")
-
+	fmt.Println("token string in middleware is =", tokenString)
 	if err != nil {
 		fmt.Println("Invalid access, User logout")
 		c.JSON(401, gin.H{
@@ -38,6 +38,7 @@ func UserAuth(c *gin.Context) {
 	})
 
 	if err != nil {
+		fmt.Print(err)
 		c.JSON(500, gin.H{
 			"Status": "False",
 			"Error":  "Error occured while token genaration",

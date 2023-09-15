@@ -1185,7 +1185,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Change a user's password by providing the email, OTP, and new password.
+      description: Change a user's password by providing the email, OTP, and new password,
+        this is after generating otp for forgotpassword.
       parameters:
       - description: User data
         in: body
@@ -1208,7 +1209,7 @@ paths:
           description: User not exist
           schema:
             type: string
-      summary: Change user's password
+      summary: change users password
       tags:
       - users
   /user/login:

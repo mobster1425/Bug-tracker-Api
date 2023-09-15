@@ -1061,7 +1061,7 @@ const docTemplate = `{
         },
         "/user/forgotpassword/changepassword": {
             "post": {
-                "description": "Change a user's password by providing the email, OTP, and new password.",
+                "description": "Change a user's password by providing the email, OTP, and new password, this is after generating otp for forgotpassword.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1071,7 +1071,7 @@ const docTemplate = `{
                 "tags": [
                     "users"
                 ],
-                "summary": "Change user's password",
+                "summary": "change users password",
                 "parameters": [
                     {
                         "description": "User data",

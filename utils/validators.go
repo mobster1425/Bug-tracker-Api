@@ -1,5 +1,9 @@
 package utils
 
+import (
+	// "strings"
+)
+
 func ProjectNameError(name string) string {
 	if name == "" || len(name) > 60 {
 		return "Project name length must not be more than 60."
@@ -65,4 +69,108 @@ func ContainsUint(slice []uint, value uint) bool {
 		}
 	}
 	return false
+}
+
+/*
+func ValidateSignup(username, password, email, confirmPassword string) (map[string]string, bool) {
+	errors := make(map[string]string)
+	valid := true
+
+	if username == "" {
+		errors["username"] = "Username is required."
+		valid = false
+	} else if len(username) < 3 || len(username) > 20 {
+		errors["username"] = "Username must be between 3 and 20 characters."
+		valid = false
+	}
+
+	if password == "" {
+		errors["password"] = "Password is required."
+		valid = false
+	} else if len(password) < 6 {
+		errors["password"] = "Password must be at least 6 characters long."
+		valid = false
+	}
+
+	if confirmPassword == "" {
+		errors["confirmPassword"] = "Confirm Password is required."
+		valid = false
+	} else if password != confirmPassword {
+		errors["confirmPassword"] = "Passwords do not match."
+		valid = false
+	}
+
+	if email == "" {
+		errors["email"] = "Email is required."
+		valid = false
+	} else if !isValidEmail(email) {
+		errors["email"] = "Invalid email address."
+		valid = false
+	}
+
+	return errors, valid
+}
+
+
+*/
+
+type AuthErrors struct {
+	Username string
+	Password string
+	Email    string
+}
+
+func ValidateSignup(username string, password string, confirmpassword string, email string) (AuthErrors, bool) {
+	errors := AuthErrors{}
+
+	if len(username) == 0 || username == "" {
+		errors.Username = "Username must not be null."
+	}
+
+	if len(password) == 0 || len(password) < 6 || password == "" {
+		errors.Password = "Password must be at least 6 characters long."
+	}
+
+	if password != confirmpassword {
+		errors.Password = "Passwords do not match."
+	}
+	
+
+	if len(email) == 0 || email == "" {
+		errors.Email = "Email must not be null"
+	}
+
+	valid := len(errors.Username) == 0 && len(errors.Password) == 0 && len(errors.Email) == 0
+
+	return errors, valid
+}
+
+
+
+
+type AuthErrors1 struct {
+	
+	Password string
+	Email    string
+}
+
+
+// ValidateLogin validates login data
+func ValidateLogin(email string, password string) (AuthErrors1, bool) {
+	
+
+	errors := AuthErrors1{}
+
+
+	if len(password) == 0 || len(password) < 6 || password == "" {
+		errors.Password = "Password must be at least 6 characters long and password must not be empty."
+	}
+
+	if len(email) == 0 || email == "" {
+		errors.Email = "Email must not be null"
+	}
+
+	valid :=  len(errors.Password) == 0 && len(errors.Email) == 0
+
+	return errors, valid
 }

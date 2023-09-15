@@ -125,6 +125,14 @@ func OtpValidation(c *gin.Context) {
 		})
 		return
 	}
+
+	if user_otp.Email == " " || user_otp.Otp == " " {
+		c.JSON(400, gin.H{
+			"Message": "fields must not be empty",
+		})
+		return
+	}
+
 	db := config.DB
 	result := db.First(&userData, "otp LIKE ? AND email LIKE ?", user_otp.Otp, user_otp.Email)
 
@@ -197,6 +205,14 @@ func GenerateOtpForForgotPassword(c *gin.Context) {
 		fmt.Println("Data binding error")
 		return
 	}
+
+	if data.Email == " " {
+		c.JSON(400, gin.H{
+			"Message": "Field must not be empty",
+		})
+		return
+	}
+
 	otp := VerifyOTP(data.Email)
 
 	db := config.DB
@@ -211,9 +227,9 @@ func GenerateOtpForForgotPassword(c *gin.Context) {
 		return
 	}
 	c.JSON(200, gin.H{
-		"Message": "otp send go to /user/forgotpassword/changepassword",
+		"Message": "otp sent go to /user/forgotpassword/changepassword",
 	})
-	fmt.Println("OTP sent successfully")
+	fmt.Println("OTP sent successfully, now the users controller gets redierected to userchangepassword to change password succesfully after he forgot his password")
 }
 
 // Reseting the password after forgot password
@@ -225,9 +241,9 @@ type userEnterData1 struct {
 	ConfirmPassword string
 }
 
-// UserChangePassword godoc
-// @Summary Change user's password
-// @Description Change a user's password by providing the email, OTP, and new password.
+// ForgotPassword godoc
+// @Summary change users password
+// @Description Change a user's password by providing the email, OTP, and new password, this is after generating otp for forgotpassword.
 // @Tags users
 // @Accept json
 // @Produce json
@@ -239,7 +255,7 @@ type userEnterData1 struct {
 // @Failure 409 {object} string "User not exist"
 // @Failure 400 {object} string "Invalid OTP"
 // @Router /user/forgotpassword/changepassword [post]
-func UserChangePassword(c *gin.Context) {
+func ForgotPassword(c *gin.Context) {
 	fmt.Println("UserChangePassword controller called")
 
 	var data userEnterData1
@@ -251,6 +267,14 @@ func UserChangePassword(c *gin.Context) {
 		fmt.Println("Data binding error")
 		return
 	}
+
+	if data.Email == " " || data.ConfirmPassword == " " || data.Otp == " " || data.Password == " " {
+		c.JSON(400, gin.H{
+			"Message": "Field must not be empty",
+		})
+		return
+	}
+
 	if data.Password != data.ConfirmPassword {
 		c.JSON(400, gin.H{
 			"Error": "Password not match",

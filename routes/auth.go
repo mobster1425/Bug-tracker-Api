@@ -24,7 +24,7 @@ func UserRoutes(c *gin.Engine) {
 
 		//Forgot Password
 		User.PUT("/forgotpassword", middleware.UserAuth, controls.GenerateOtpForForgotPassword)
-		User.POST("/forgotpassword/changepassword", middleware.UserAuth, controls.UserChangePassword)
+		User.POST("/forgotpassword/changepassword", middleware.UserAuth, controls.ForgotPassword)
 	}
 
 }

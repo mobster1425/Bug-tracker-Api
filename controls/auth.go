@@ -4,6 +4,7 @@ import (
 	"feyin/bug-tracker/auth"
 	"feyin/bug-tracker/config"
 	"feyin/bug-tracker/models"
+	"feyin/bug-tracker/utils"
 	"fmt"
 	"net/http"
 	"strconv"
@@ -61,6 +62,36 @@ func SignUp(c *gin.Context) {
 	if c.Bind(&Data) != nil {
 		c.JSON(400, gin.H{
 			"error": "Data binding error",
+		})
+		return
+	}
+
+	// Validate signup data
+	/*
+		errors, valid := utils.ValidateSignup(Data.Email, Data.Password, Data.ConfirmPassword, Data.UserName)
+		if !valid {
+			c.JSON(400, gin.H{
+				"errors": errors,
+			})
+			return
+		}
+	*/
+
+	errors, valid := utils.ValidateSignup(Data.Email, Data.Password, Data.ConfirmPassword, Data.UserName)
+
+	if !valid {
+		errorMessage := ""
+		if Data.UserName == "" {
+			errorMessage = "Username must not be empty."
+		} else if len(errors.Password) > 0 {
+			errorMessage = errors.Password
+		} else if Data.Email == "" {
+			errorMessage = "Email must not be empty."
+		}
+
+		// Construct and send the response
+		c.JSON(400, gin.H{
+			"message": errorMessage,
 		})
 		return
 	}
@@ -157,6 +188,25 @@ func Login(c *gin.Context) {
 		})
 		return
 	}
+
+	// Validate login data
+	errors, valid := utils.ValidateLogin(user.Email, user.Password)
+
+	if !valid {
+		errorMessage := ""
+		if len(errors.Password) > 0 {
+			errorMessage = errors.Password
+		} else if len(errors.Email) > 0 {
+			errorMessage = errors.Email
+		}
+
+		// Construct and send the response
+		c.JSON(400, gin.H{
+			"message": errorMessage,
+		})
+		return
+	}
+
 	var checkUser models.User
 	db := config.DB
 
@@ -183,6 +233,7 @@ func Login(c *gin.Context) {
 	str := strconv.Itoa(int(checkUser.ID))
 
 	tokenString := auth.TokenGeneration(str)
+	fmt.Println(tokenString)
 	/*
 		This line sets the same-site attribute of cookies to "Lax" mode.
 		It restricts cookies from being sent in cross-site requests that change the state of the user,
@@ -267,6 +318,14 @@ func ChangePassword(c *gin.Context) {
 		return
 	}
 
+	if userEnterData.Password == "" || userEnterData.ConfirmPassword == "" {
+		c.JSON(400, gin.H{
+			"Message": "Fields must not be empty",
+		})
+		// fmt.Println("Password and ConfirmPassword do not match")
+		return
+	}
+
 	if userEnterData.Password != userEnterData.ConfirmPassword {
 		c.JSON(400, gin.H{
 			"Message": "Password not match",
@@ -340,6 +399,15 @@ func UpdatePassword(c *gin.Context) {
 		fmt.Println("Data binding error")
 		return
 	}
+
+	if userEnterData.Password == "" {
+		c.JSON(400, gin.H{
+			"Message": "Password field must not be empty",
+		})
+
+		return
+	}
+
 	hash, err := bcrypt.GenerateFromPassword([]byte(userEnterData.Password), 10)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
