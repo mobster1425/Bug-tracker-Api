@@ -124,8 +124,15 @@ func SignUp(c *gin.Context) {
 		}
 
 		// getting otp from verifyotp after sending a mail to the receiptant email
-		otp := VerifyOTP(Data.Email)
-
+		otp, err := VerifyOTP(Data.Email)
+		if err != nil {
+			// Handle the error, e.g., return an error response
+			c.JSON(500, gin.H{
+				"Status": "False",
+				"Error":  "Error sending OTP email",
+			})
+			return
+		}
 		// Debug print statement
 		fmt.Println("Generated OTP:", otp)
 

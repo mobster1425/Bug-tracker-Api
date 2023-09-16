@@ -17,19 +17,23 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-func VerifyOTP(email string) string {
+func VerifyOTP(email string) (string, error) {
 	Otp, err := getRandNum()
 	if err != nil {
-		panic(err)
+		return "", err
+	//	panic(err)
+	}
+	err = sendMail(email, Otp)
+	if err != nil {
+		return "", err
 	}
 
-	sendMail(email, Otp)
-	return Otp
+	return Otp, nil
 }
 
 // smtp server protocol is used to send outgoing email from a users mail account to receivers emails server, in here the receiver email is
 // a slice of string, because the receivers would b more than one
-func sendMail(email string, otp string) {
+func sendMail(email string, otp string) error {
 	fmt.Println("Sending email to:", email)
 
 	/*
@@ -81,9 +85,10 @@ func sendMail(email string, otp string) {
 	err := smtp.SendMail(smtpHost+":"+smtpPort, auth, from, to, []byte(otp+" is your otp"))
 	if err != nil {
 		fmt.Println(err)
-		return
+		return err
 	}
 	fmt.Println("Email sent successfully to:", email)
+	return nil
 }
 
 func getRandNum() (string, error) {
@@ -213,7 +218,15 @@ func GenerateOtpForForgotPassword(c *gin.Context) {
 		return
 	}
 
-	otp := VerifyOTP(data.Email)
+	otp, err := VerifyOTP(data.Email)
+if err != nil {
+    // Handle the error, e.g., return an error response
+    c.JSON(500, gin.H{
+        "Status": "False",
+        "Error":  "Error sending OTP email",
+    })
+    return
+}
 
 	db := config.DB
 	var userData models.User
