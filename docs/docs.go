@@ -1322,7 +1322,7 @@ const docTemplate = `{
             }
         },
         "/user/userchangepassword/updatepassword": {
-            "post": {
+            "put": {
                 "description": "Update a user's password by providing the user's current password and the new password.",
                 "consumes": [
                     "application/json"

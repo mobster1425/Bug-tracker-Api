@@ -392,7 +392,7 @@ func ChangePassword(c *gin.Context) {
 // @Failure 400 {object} string "Hashing password error"
 // @Failure 400 {object} string "Error in string conversion"
 // @Failure 409 {object} string "User not exist"
-// @Router /user/userchangepassword/updatepassword [post]
+// @Router /user/userchangepassword/updatepassword [put]
 func UpdatePassword(c *gin.Context) {
 	// Update password
 	fmt.Println("UpdatePassword controller called")

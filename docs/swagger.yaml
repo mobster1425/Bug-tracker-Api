@@ -1355,7 +1355,7 @@ paths:
       tags:
       - users
   /user/userchangepassword/updatepassword:
-    post:
+    put:
       consumes:
       - application/json
       description: Update a user's password by providing the user's current password
