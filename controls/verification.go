@@ -21,7 +21,7 @@ func VerifyOTP(email string) (string, error) {
 	Otp, err := getRandNum()
 	if err != nil {
 		return "", err
-	//	panic(err)
+		//	panic(err)
 	}
 	err = sendMail(email, Otp)
 	if err != nil {
@@ -219,14 +219,14 @@ func GenerateOtpForForgotPassword(c *gin.Context) {
 	}
 
 	otp, err := VerifyOTP(data.Email)
-if err != nil {
-    // Handle the error, e.g., return an error response
-    c.JSON(500, gin.H{
-        "Status": "False",
-        "Error":  "Error sending OTP email",
-    })
-    return
-}
+	if err != nil {
+		// Handle the error, e.g., return an error response
+		c.JSON(500, gin.H{
+			"Status": "False",
+			"Error":  "Error sending OTP email",
+		})
+		return
+	}
 
 	db := config.DB
 	var userData models.User
@@ -329,7 +329,7 @@ func ForgotPassword(c *gin.Context) {
 		return
 	}
 	c.JSON(200, gin.H{
-		"Message": "Password Change successfully",
+		"Message": "Password Change successfully, now login",
 	})
 	fmt.Println("User forgot his password, so it has been chagned succesffuly,Password changed successfully")
 }

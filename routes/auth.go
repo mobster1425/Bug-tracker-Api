@@ -23,8 +23,10 @@ func UserRoutes(c *gin.Engine) {
 		User.PUT("/userchangepassword/updatepassword", middleware.UserAuth, controls.UpdatePassword)
 
 		//Forgot Password
-		User.PUT("/forgotpassword", middleware.UserAuth, controls.GenerateOtpForForgotPassword)
-		User.POST("/forgotpassword/changepassword", middleware.UserAuth, controls.ForgotPassword)
+		//	User.PUT("/forgotpassword", middleware.UserAuth, controls.GenerateOtpForForgotPassword)
+		User.PUT("/forgotpassword", controls.GenerateOtpForForgotPassword)
+		// 	User.POST("/forgotpassword/changepassword", middleware.UserAuth, controls.ForgotPassword)
+		User.POST("/forgotpassword/changepassword", controls.ForgotPassword)
 	}
 
 }
